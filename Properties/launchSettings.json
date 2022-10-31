@@ -3,7 +3,7 @@
     "HNGStage1Task": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger",
+      "launchUrl": "Description",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
