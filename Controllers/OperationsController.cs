@@ -5,7 +5,7 @@ using System.Net;
 namespace HNGStage1Task.Controllers
 {
     [ApiController]
-    [Route("api/[Controller]")]
+    [Route("[Controller]")]
     
     public class OperationsController : ControllerBase
     {
@@ -50,12 +50,12 @@ namespace HNGStage1Task.Controllers
                     final = string.Join(" ", op.SlackUsername, op.result, OperationType.Addition);
                     return Ok(final);
                     default:
-                    throw new ArgumentOutOfRangeException();
+                    return NotFound();
             }
             
 
 
-                //return final;
+                return Ok(final);
             }
         }
     
