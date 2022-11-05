@@ -18,7 +18,7 @@ namespace HNGStage1Task.Controllers
             [HttpPost("Operation")]
             [ProducesResponseType((int)HttpStatusCode.OK)]
             [ProducesResponseType((int)HttpStatusCode.NotFound)]
-            public ActionResult<string> Operation([FromBody] Operation operation)
+            public ActionResult Operation([FromBody] Operation operation)
             {
 
             op = new Operation()
