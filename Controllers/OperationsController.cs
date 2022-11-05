@@ -18,7 +18,7 @@ namespace HNGStage1Task.Controllers
             [HttpPost("Operation")]
             [ProducesResponseType((int)HttpStatusCode.OK)]
             [ProducesResponseType((int)HttpStatusCode.NotFound)]
-            public string Operation([FromBody] Operation operation)
+            public ActionResult<string> Operation([FromBody] Operation operation)
             {
 
             op = new Operation()
@@ -38,17 +38,17 @@ namespace HNGStage1Task.Controllers
                 case OperationType.Addition:
                     op.result = op.x + op.y;
                     final = string.Join(" ",op.SlackUsername, op.result, OperationType.Addition);
-                    return final;
+                    return Ok(final);
 
                 case OperationType.Subtraction:
                     op.result = op.x - op.y;
                     final = string.Join(" ", op.SlackUsername, op.result, OperationType.Addition);
-                    return final;
+                    return Ok(final);
 
                 case OperationType.Multiplication:
                     op.result = op.x * op.y;
                     final = string.Join(" ", op.SlackUsername, op.result, OperationType.Addition);
-                    return final;
+                    return Ok(final);
                     default:
                     throw new ArgumentOutOfRangeException();
             }
