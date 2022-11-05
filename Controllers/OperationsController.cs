@@ -9,8 +9,8 @@ namespace HNGStage1Task.Controllers
     
     public class OperationsController : ControllerBase
     {
-        private static Operation op;
-        private static TaskDescription description;
+        public static Operation op;
+        //private static TaskDescription description;
 
 
 
