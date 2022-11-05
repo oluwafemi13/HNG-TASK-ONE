@@ -5,7 +5,7 @@ using System.Net;
 namespace HNGStage1Task.Controllers
 {
     [ApiController]
-    [Route("[Controller]")]
+    [Route("[controller]")]
     
     public class OperationsController : ControllerBase
     {
