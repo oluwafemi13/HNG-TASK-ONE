@@ -9,10 +9,10 @@ namespace HNGStage1Task.Controllers
     public class DescriptionController : ControllerBase
     {
         private static TaskDescription desc = new TaskDescription();
-        
-            
 
-        
+
+
+
 
         [HttpGet(Name = "GetDescription")]
         public IActionResult Get()
@@ -20,6 +20,6 @@ namespace HNGStage1Task.Controllers
             return Ok(desc);
         }
 
-        
+
     }
 }

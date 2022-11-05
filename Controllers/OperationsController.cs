@@ -6,7 +6,7 @@ namespace HNGStage1Task.Controllers
 {
     [ApiController]
     [Route("api/[Controller]")]
-    [Produces("application/json")]
+    
     public class OperationsController : ControllerBase
     {
         private static Operation op;
@@ -15,49 +15,48 @@ namespace HNGStage1Task.Controllers
 
 
 
-            [HttpPost("{operation}")]
-            //[HttpPost("[action]/{x}/{y}/{operation}")]
+            [HttpPost]
+            
             [ProducesResponseType((int)HttpStatusCode.OK)]
             [ProducesResponseType((int)HttpStatusCode.NotFound)]
-            public IActionResult Operation([FromBody] string operation)
+            public string Operation([FromBody] Operation operation)
             {
+
+            op = new Operation()
+            {
+                operations = OperationType.Addition,
+                x = 5,
+                y = 6,
                 
+
+            };
             
-                int result = 0;
-                int x = 5;
-                int y = 6;
-                
-                if (operation is null)
-                {
-                      return NotFound();
-
-                }
-                else if (operation == "Addition".ToLower())
-                {
-                     result = x + y;
-                     string final = string.Join(',', description.SlackUsername, result,OperationType.Addition);
-
-                    return Ok(final);
-                }
-                else if (operation == "Subtraction".ToLower())
-                {
-                result = x - y;
-                string final = string.Join(',', description.SlackUsername, result, OperationType.Subtraction);
-
-                return Ok(final);
-                }
-                else if (operation == "Multiplication".ToLower())
-                {
-                result = x * y;
-                string final = string.Join(',', description.SlackUsername, result, OperationType.Addition);
-
-                return Ok(final);
-                }
-
-                return Ok(operation);
+                string final = "";
 
 
+            switch (operation.operations)
+            {
+                case OperationType.Addition:
+                    op.result = op.x + op.y;
+                    final = string.Join(" ",op.SlackUsername, op.result, OperationType.Addition);
+                    return final;
 
+                case OperationType.Subtraction:
+                    op.result = op.x - op.y;
+                    final = string.Join(" ", op.SlackUsername, op.result, OperationType.Addition);
+                    return final;
+
+                case OperationType.Multiplication:
+                    op.result = op.x * op.y;
+                    final = string.Join(" ", op.SlackUsername, op.result, OperationType.Addition);
+                    return final;
+                    default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            
+
+
+                //return final;
             }
         }
     

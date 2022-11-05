@@ -1,8 +1,8 @@
 ﻿namespace HNGStage1Task.Model
 {
-    public class TaskDescription
+    public class TaskDescription:userName
     {
-        public string SlackUsername { get; set; } = "Iwuchukwu Ikechukwu";
+        
 
         public bool Backend { get; set; } = true;
 
